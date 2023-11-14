@@ -1,0 +1,30 @@
+name: flutter_application_1
+version: 0.1.0
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=3.1.3 <4.0.0'
+
+dependencies: 
+  get: 4.6.6
+  image_picker: ^1.0.4
+  webview_flutter: ^4.4.1
+
+  flutter: 
+    sdk: flutter
+  http: ^1.1.0
+
+dev_dependencies: 
+  flutter_lints: ^2.0.0
+  webview_flutter: ^4.4.1
+  
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+
+  assets:
+    - lib/app/data/Assets/
+
+
