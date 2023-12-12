@@ -41,7 +41,7 @@ class Result {
     String backdropPath;
     int id;
     String title;
-    OriginalLanguage originalLanguage;
+ //   OriginalLanguage originalLanguage;
     String originalTitle;
     String overview;
     String posterPath;
@@ -58,7 +58,7 @@ class Result {
         required this.backdropPath,
         required this.id,
         required this.title,
-        required this.originalLanguage,
+      //  required this.originalLanguage,
         required this.originalTitle,
         required this.overview,
         required this.posterPath,
@@ -76,7 +76,7 @@ class Result {
         backdropPath: json["backdrop_path"],
         id: json["id"],
         title: json["title"],
-        originalLanguage: originalLanguageValues.map[json["original_language"]]!,
+      //  originalLanguage: originalLanguageValues.map[json["original_language"]]!,
         originalTitle: json["original_title"],
         overview: json["overview"],
         posterPath: json["poster_path"],
@@ -94,7 +94,7 @@ class Result {
         "backdrop_path": backdropPath,
         "id": id,
         "title": title,
-        "original_language": originalLanguageValues.reverse[originalLanguage],
+      //  "original_language": originalLanguageValues.reverse[originalLanguage],
         "original_title": originalTitle,
         "overview": overview,
         "poster_path": posterPath,

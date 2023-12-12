@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app/modules/home/controllers/Database_controller.dart';
 import 'package:flutter_application_1/app/modules/home/controllers/picker_controller.dart';
 import 'package:flutter_application_1/app/modules/home/views/Edit_Profile.dart';
+import 'package:flutter_application_1/app/modules/home/views/faq_page.dart';
 import 'package:flutter_application_1/app/modules/home/views/pageWeb.dart';
 import 'package:get/get.dart';
 
+import '../controllers/auth_controller.dart';
+
 class self extends StatelessWidget {
-  const self({super.key});
+  self({super.key});
+
+  final AuthController _authController = Get.put(AuthController());
+  final DatabaseController _dbController = Get.put(DatabaseController());
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +21,8 @@ class self extends StatelessWidget {
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('Fawwaz Azmi'),
-            accountEmail: Text('fawwazazmi@gmail.com'),
+            accountName: Obx(() => Text(_authController.name.value)),
+            accountEmail: Obx(() => Text(_authController.email.value)),
             currentAccountPicture: InkWell(
               onTap: () {
                 Navigator.push(
@@ -53,8 +60,10 @@ class self extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.bookmark),
-            title: Text('Bookmark'),
-            onTap: () => print('Bmark'),
+            title: Text('Mylist'),
+            onTap: () {
+              _dbController.getList();
+            },
           ),
           ListTile(
             leading: Icon(Icons.notifications),
@@ -75,12 +84,17 @@ class self extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.logout),
             title: Text('Logout'),
-            onTap: () => print('Lout'),
+            onTap: () => _authController.logout(),
           ),
           ListTile(
             leading: Icon(Icons.help_outline_sharp),
             title: Text('Help'),
-            onTap: () => print('Help'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => faqPage()),
+              );
+            },
           ),
           InkWell(
             onTap: () {

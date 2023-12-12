@@ -67,21 +67,16 @@ class HomeView extends GetView<HomeController> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      Get.to(() => self());
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Text(
-                        "view all",
-                        style: TextStyle(
-                            color: Colors.deepOrangeAccent.shade400,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Text(
+                      "view all",
+                      style: TextStyle(
+                          color: Colors.deepOrangeAccent.shade400,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -207,7 +202,7 @@ class CardMovie extends StatelessWidget {
         InkWell(
           onTap: () {
             Get.to(() => viewScreen(
-                  movie: datalistfilm.Movies[index],
+                  movieData: data,
                 ));
           },
           child: ClipRRect(
